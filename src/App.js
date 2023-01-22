@@ -1,48 +1,29 @@
-import {useEffect, useState} from "react";
+/** 메인 js */
+import {
+  //BrowserRouter : 일반적인 웹사이트처럼 생긴 URL.
+  //HashRouter : 포트번호와 Route사이에 /#/이 들어감.
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
+
+import Home from "./routes/Home";
+import Detail from "./routes/Detail";
 
 function App() {
-  const [loading, setLoading] = useState(true);
-  const [coins, setCoins] = useState([]); // 빈 array를 줘서 처음에 undefined 에러나지 않도록 처리.
-  const [money, setMoney] = useState([]);
-
-  const onChange = ((event) => {
-    setMoney(event.target.value);
-    console.log(money);
-  });
-
-  useEffect(() => {
-    fetch("https://api.coinpaprika.com/v1/tickers")
-      .then((response) => response.json())
-      .then((json) => {
-        setCoins(json);
-        setLoading(false);
-      });
-  }, []); // 한 번만 가져올거라 빈 배열 선언
+  // 기존에 영화목록 보여줬었는데, 이제는 router를 render할 것.
+  // router란 URL을 보고있는 component임.
   return (
-    <div>     
-     <h1>The Coins! {loading ? "" : `(${coins.length})`}</h1>  
-     
-     {loading ? (
-      <strong>로딩중...</strong>
-     ) :  (   
-      <div>
-      <input
-        type="number"
-        onChange = {onChange}
-        value={money}
-        placeholder="How much USD do you have?"  
-      /> USD
-            
-      <select>
-        {coins.map((coin) => (
-          <option>
-            {coin.name}({coin.symbol}) : {coin.quotes.USD.price} USD =&gt; You can buy {money / coin.quotes.USD.price} {coin.symbol}
-          </option>
-        ))}
-      </select>
-      </div>
-     )}
-    </div>
+    <Router>
+      {/** Switch가 하는 일 ? Route를 찾아서 컴포넌트를 랜더링. */}
+      {/** Switch => 버전6부터 Routes로 바뀜 */}
+      <Routes>
+        {/** Home으로 가는 Route */}
+        <Route path="/" element={<Home/>}/>          
+        <Route path="/movie" element={<Detail/>}/>
+        <Route path="/hello"element={<h1>Hello</h1>}/>
+      </Routes>
+    </Router>
   );
 }
 
