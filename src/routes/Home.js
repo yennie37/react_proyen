@@ -30,6 +30,7 @@ function Home() {
             //props로 Component에 전달
             <Movie 
               key={movie.id} // key : map안에서 component들을 render할 때 사용
+              id={movie.id} 
               coverImg={movie.medium_cover_image} 
               title={movie.title} 
               summary={movie.summary} 
