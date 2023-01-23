@@ -24,7 +24,7 @@ function Home() {
 
   return (
     <div>
-      <h1 className={styles.title}>영화목록({movies.length})</h1> 
+      <h1 className={styles.title}>Movie Lists ({movies.length})</h1> 
       {loading ? (
         <div className={styles.loader}>
           <h1>영화목록을 가져오는 중 :9</h1>
