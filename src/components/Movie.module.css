@@ -1,0 +1,18 @@
+.center {
+    text-align: center;
+}
+
+.title {
+    width: 100%;
+    text-align: center;
+}
+
+.lists {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.list {
+    list-style-type: square;
+}

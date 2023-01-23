@@ -21,7 +21,7 @@ function App() {
         <Route path={`${process.env.PUBLIC_URL}/`} element={<Home/>}/>          
         {/** ':'를 빼놓지말고 꼭 써야함! 안그럼 단순 string으로 id가 출력됨 */}
         <Route path="/movie/:id" element={<Detail/>}/>
-        <Route path="/about-us"element={<h1>Hello</h1>}/>
+        <Route path="/about-us" element={<h1>Hello</h1>}/>
       </Routes>
     </Router>
   );
