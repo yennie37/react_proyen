@@ -76,6 +76,46 @@ const usePreventLeave = () => {
   return {enablePrevent, disablePrevent};
 }
 
+//2-4 useBeforeLeave
+const useBeforeLeave = (onBefore) => {
+  //const handle = () => console.log("떠나윳~");
+  const handle = (event) => {
+    const {clientY} = event;
+    //console.log(event);
+    
+    //work only if leave from the top
+    if(clientY <= 0) {
+      onBefore();
+    }    
+  } 
+
+  useEffect(() => {
+    document.addEventListener("mouseleave", handle);
+    return () => document.removeEventListener("mouseleave". handle);
+  }, []);
+
+  // Make sure the useEffect is not inside of an if/else
+  if(typeof onBefore !== "function")  return;
+};
+
+// 2-5 useFadeIn
+const useFadeIn = (duration = 1, delay = 0) => {
+  
+  const emt = useRef();
+
+  useEffect(() => {
+    if(emt.current) {
+      const {current} = emt;
+      current.style.transition = `opacity ${duration} s ease-in-out ${delay} s`;
+      current.style.opacity = 1;
+    }
+  },[duration, delay]);
+
+  if(typeof duration !== "number" || typeof delay !== "number")  return;  
+
+  return {ref: emt, style: {opacity: 0}};
+};
+
 
 function Hooks10_2() {  
   // 2-0
@@ -100,8 +140,18 @@ function Hooks10_2() {
   const abort = () => console.log("Aborted");
   const confirmDelete = useConfirm("R U sure?", deleteWorld, abort);
 
-  //2-3 usePreventLeave
+  // 2-3 usePreventLeave
   const {enablePrevent, disablePrevent} = usePreventLeave();
+
+  // 2-4 useBeforeLeave
+  const begForLife = () => console.log("Plz don't leave");
+  useBeforeLeave(begForLife);
+
+  // 2-5 useFadeIn
+  const fadeInH1 = useFadeIn(1, 2);
+  const fadeInP = useFadeIn(5, 10);
+
+  // 2-5 useNetwork
 
   return (    
     <div>
@@ -141,7 +191,19 @@ function Hooks10_2() {
         <button onClick={disablePrevent}>Unprotect</button>
       </div>
       <hr/>
-      
+
+      <div>
+        <h2>2-4. useBeforeLeave </h2>         
+        <p>가지말아유</p>
+      </div>
+      <hr/>
+
+      <div>       
+        <h2>2-5. useFadeIn & useNetwork </h2>         
+        <h1 {...fadeInH1}>천천히 나타나유~~~~~</h1>
+        <p {...fadeInP}>lorem ipsum lalallllllllall</p>
+      </div>
+      <hr/>
     </div>
   );
 }
