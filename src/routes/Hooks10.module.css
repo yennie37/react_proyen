@@ -1,7 +1,8 @@
   .title {
     width: 100%;
-    text-align: center;
-    padding: 30px 30px 0px 30px;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
   }
 
   .input {
@@ -9,3 +10,24 @@
     margin: auto;
   }
   
+  img {
+    margin-top: 20px;
+  }
+
+  button {
+    background-color: #b79ccc;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  button:hover {
+    background-color: #a17db3;
+  }

@@ -35,3 +35,34 @@
       width: 100%;
     }
   }
+
+  .mainTitle {
+    width: 100%;
+    margin-top: 10%;
+    text-align: center;
+    color:rgb(180, 169, 236);
+  }
+
+  .buttons {
+    display: flex; /* 플렉스 박스로 설정 */
+    justify-content: center;
+  }
+
+  /* Link */
+  .buttons a {
+    text-decoration: none;
+    color: blanchedalmond;
+    font-size: 20px;
+  }
+
+  .buttons button {
+    width : 80%;
+    height: 40px;
+    border: none;
+    margin-top: 20px;  
+    background-color: rgb(189, 180, 236);
+    display: flex;
+    align-items: center; /* 세로 중앙 정렬 */
+    justify-content: center; /* 가로 중앙 정렬 */
+
+  }
