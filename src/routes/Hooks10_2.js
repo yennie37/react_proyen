@@ -100,13 +100,14 @@ const useBeforeLeave = (onBefore) => {
 
 // 2-5 useFadeIn
 const useFadeIn = (duration = 1, delay = 0) => {
-  
-  const emt = useRef();
+  const emt = useRef(); // 2-2의 Ref와 헷갈릴까봐 이름을 emt로 써줌.
 
   useEffect(() => {
+    //console.log(emt.current);
     if(emt.current) {
       const {current} = emt;
-      current.style.transition = `opacity ${duration} s ease-in-out ${delay} s`;
+      // 띄워쓰기에 조심합시다 ^^..
+      current.style.transition = `opacity ${duration}s ease-in-out ${delay}s`;
       current.style.opacity = 1;
     }
   },[duration, delay]);
@@ -116,6 +117,27 @@ const useFadeIn = (duration = 1, delay = 0) => {
   return {ref: emt, style: {opacity: 0}};
 };
 
+// 2-5 useNetwork
+const useNetwork = onChange => {
+  //기본값으로 navigator.onLine 설정
+  // => boolean, 웹사이트가 온라인인지 아닌지 알 수 있음.
+  const [status, setStatus] = useState(navigator.onLine);  
+  const handleChange = () => {
+    if(typeof onChange === "function") onChange(navigator.onLine);
+    setStatus(navigator.onLine);
+  };
+  
+  useEffect(() => {
+    window.addEventListener("online", handleChange);
+    window.addEventListener("offline", handleChange);
+    return () => {
+      window.removeEventListener("online", handleChange);
+      window.removeEventListener("offline", handleChange);
+    };
+  }, []); //No depndency
+
+  return status;
+};
 
 function Hooks10_2() {  
   // 2-0
@@ -152,6 +174,11 @@ function Hooks10_2() {
   const fadeInP = useFadeIn(5, 10);
 
   // 2-5 useNetwork
+  // 네트워크 상태가 바뀔 때 실행.
+  const handleNetworkChange = (online) => {
+    console.log(online ? "We just went online" : "We are offline");
+  };
+  const onLine = useNetwork(handleNetworkChange);
 
   return (    
     <div>
@@ -199,9 +226,15 @@ function Hooks10_2() {
       <hr/>
 
       <div>       
-        <h2>2-5. useFadeIn & useNetwork </h2>         
+        <h2>2-5. (1)useFadeIn</h2>         
         <h1 {...fadeInH1}>천천히 나타나유~~~~~</h1>
         <p {...fadeInP}>lorem ipsum lalallllllllall</p>
+      </div>
+      <hr/>
+
+      <div>
+        <h2>2-5. (2)useNetwork </h2>         
+        <p>네트워크 상태 : {onLine ? "Online" : "Offline"}</p>
       </div>
       <hr/>
     </div>
