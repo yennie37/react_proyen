@@ -1,4 +1,5 @@
 import {useEffect, useState, useRef} from "react";
+import useAxios from "../useAxios";
 import styles from "./Hooks10.module.css";
 
 // 2-6 useScroll
@@ -44,6 +45,28 @@ const useFullscreen = (callback) => {
   return {element, triggerFull, exitFull};
 };
 
+// 2-7 useNotification 
+const useNotification = (title, options) => {
+  if(!("Notification" in window)) return;
+
+  const fireNotif = () =>{
+    //Notification.permission 읽기전용 denied / granted / default
+    if(Notification.permission !== "granted") {
+      Notification.requestPermission().then(permission => {
+        if(permission === "granted") new Notification(title, options);
+        else return;
+      })
+    } else {
+      new Notification(title, options);
+    }
+  };
+
+  return fireNotif;
+};
+
+// 2-8 useAxios
+
+
 function Hooks10_2() {  
   // 2-6 useScroll
   const {y} = useScroll();
@@ -54,6 +77,18 @@ function Hooks10_2() {
   };
 
   const {element, triggerFull, exitFull} = useFullscreen(onFullS);
+
+  // 2-7 useNotification 
+  const triggerNotif = useNotification("Shall we dance ?", {
+    body : "어디서오셨어요? 대전이요 ~"
+  });
+
+  // 2-8 useAxios
+  const {loading, data, error} = useAxios({
+    url: "https://yts.am/api/v2/list_movies.json"
+  });
+
+  console.log(`Loading : ${loading}\nError : ${error}\nData : ${JSON.stringify(data)}`);
 
   return (    
     <div style={{height: "1000vh"}}>
@@ -84,21 +119,16 @@ function Hooks10_2() {
 
       <div>
         <h2>2-7. useNotification</h2>               
-        <p>기다려봐유</p>
+        <button onClick={triggerNotif}>브라우저 알림창</button>
       </div>
       <hr/>
 
       <div>
         <h2>2-8. useAxios</h2>               
-        <p>기다려봐유</p>
+        <p>Add Dependency를 해주자 ~</p>
+        <p>axios는 HTTP request를 만드는 거란다.</p>
       </div>
-      <hr/>
-
-      <div>
-        <h2>2-9. Conclusions</h2>               
-        <button>올려봐유</button>
-      </div>
-      <hr/>      
+      <hr/>    
     </div>
   );
 }
