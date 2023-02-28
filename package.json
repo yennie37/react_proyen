@@ -42,5 +42,6 @@
       "last 1 safari version"
     ]
   },
+  "proxy": "https://yts.am/api/",
   "homepage": "https://yennie37.github.io/react-4-beginners"
 }

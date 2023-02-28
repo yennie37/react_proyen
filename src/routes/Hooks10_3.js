@@ -67,7 +67,7 @@ const useNotification = (title, options) => {
 // 2-8 useAxios
 
 
-function Hooks10_2() {  
+function Hooks10_3() {  
   // 2-6 useScroll
   const {y} = useScroll();
 
@@ -84,7 +84,7 @@ function Hooks10_2() {
   });
 
   // 2-8 useAxios
-  const {loading, data, error} = useAxios({
+  const {loading, data, error, refetch} = useAxios({
     url: "/v2/list_movies.json"
   });
 
@@ -127,10 +127,13 @@ function Hooks10_2() {
         <h2>2-8. useAxios</h2>               
         <p>Add Dependency를 해주자 ~</p>
         <p>axios는 HTTP request를 만드는 거란다.</p>
+        <h3>{data && data.status}</h3>
+        <h3>{loading && "Loading"}</h3>
+        <button onClick={refetch}>다시 가져오기(Refetch)</button>
       </div>
       <hr/>    
     </div>
   );
 }
 
-export default Hooks10_2;
+export default Hooks10_3;

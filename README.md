@@ -1,7 +1,8 @@
 <React 기초 공부용 프로젝트>
 
 노마드코더 니꼴라스 여러 무료강의를 보고 배운 것을 응용함.
-- 깃허브 주소 : https://github.com/yennie37/react-4-beginners
+- git repository: https://github.com/yennie37/react-4-beginners
+- author: Yeeun Lee <yennie37@naver.com>
 
 1. ReactJS로 영화 웹 서비스 만들기
  - 공부 기간 : 2022년말(정확한 날짜 기억안남)
@@ -17,3 +18,4 @@
 - 공부 기간 : 2023년(예정)
 - 강의 링크 : https://nomadcoders.co/nwitter/
 - 노션 정리 : https://www.notion.so/proyen/da6f7cef6c704a738ba61a8a15845152
+
