@@ -9,6 +9,10 @@ function Home() {
     <div>
       <h1 className={styles.mainTitle}>Menu</h1> 
       <div className={styles.buttons}>        
+        <button><Link to="/movieHome/">Movie로 이동</Link></button>
+      </div>
+
+      <div className={styles.buttons}>        
         <button><Link to="/testPage/hooks1">Hooks10(1)로 이동</Link></button>
       </div>
 

@@ -1,12 +1,13 @@
+/*.movie의 CSS 가 안이쁜거같은데 어떻게고치는게 좋을까? */
 .movie {
     background-color: white;
     margin-bottom: 70px;
     font-weight: 300;
     padding: 20px;
     border-radius: 5px;
-    color: #364097;
+    color: #6e027c;
     text-align: center;    
-    background-color: rgb(212, 230, 243);
+    background-color: #b79ccc;
 }
 .movie img {
     padding-top: 20px;
@@ -36,7 +37,7 @@
 .title a {
     margin-bottom: 5px;
     font-size: 24px;
-    color: #3a3d58;
+    color: #6e027c;
     text-decoration: none;
 }
   

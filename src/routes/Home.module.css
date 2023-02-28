@@ -23,8 +23,8 @@
     border: 2em black;
     display: grid;
     grid-template-columns: repeat(2, minmax(400px, 1fr));
-    grid-gap: 100px;
-    padding: 50px;
+    grid-gap: 60px;
+    padding: 30px;
     width: 80%;
     padding-top: 30px;
   }

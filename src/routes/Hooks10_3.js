@@ -85,7 +85,7 @@ function Hooks10_2() {
 
   // 2-8 useAxios
   const {loading, data, error} = useAxios({
-    url: "https://yts.am/api/v2/list_movies.json"
+    url: "/v2/list_movies.json"
   });
 
   console.log(`Loading : ${loading}\nError : ${error}\nData : ${JSON.stringify(data)}`);
