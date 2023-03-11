@@ -60,7 +60,10 @@
     height: 40px;
     border: none;
     margin-top: 20px;  
+    text-decoration: none;
+    color: blanchedalmond;
     background-color: rgb(189, 180, 236);
+    font-size: 20px;
     display: flex;
     align-items: center; /* 세로 중앙 정렬 */
     justify-content: center; /* 가로 중앙 정렬 */
