@@ -16,7 +16,6 @@ function MovieHome() {
     setMovies(json.data.movies);
     setLoading(false); // 로딩완료시 제거
   }
-  
 
   useEffect(() => {
     getMovies();   
@@ -24,7 +23,8 @@ function MovieHome() {
 
   return (
     <div>
-      <h1 className={styles.title}>Movie Lists ({movies.length})</h1> 
+      <h1 className={styles.title}>Movie List ({movies.length})</h1> 
+      <p className={styles.annotation}>※ 평점 8.9 이상</p>
       {loading ? (
         <div className={styles.loader}>
           <h1>영화목록을 가져오는 중 :9</h1>

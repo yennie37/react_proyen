@@ -91,7 +91,7 @@ const useBeforeLeave = (onBefore) => {
 
   useEffect(() => {
     document.addEventListener("mouseleave", handle);
-    return () => document.removeEventListener("mouseleave". handle);
+    return () => document.removeEventListener("mouseleave", handle);
   }, []);
 
   // Make sure the useEffect is not inside of an if/else
