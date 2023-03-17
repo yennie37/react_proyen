@@ -14,6 +14,7 @@ import Hooks10_1 from "./routes/Hooks10_1";
 import Hooks10_2 from "./routes/Hooks10_2";
 import Hooks10_3 from "./routes/Hooks10_3";
 import MovieHome from "./routes/MovieHome";
+import Wheather from "./routes/Wheather";
 
 function App() {
   // 기존에 영화목록 보여줬었는데, 이제는 router를 render할 것.
@@ -25,13 +26,15 @@ function App() {
       <Routes>
         <Route path={`${process.env.PUBLIC_URL}/`} element={<Home/>}/>          
         {/** ':'를 빼놓지말고 꼭 써야함! 안그럼 단순 string으로 id가 출력됨 */}
-        <Route path="/testPage/hooks1" element={<Hooks10_1/>}/>     
+        <Route path={`${process.env.PUBLIC_URL}/testPage/hooks1`} element={<Hooks10_1/>}/>     
         <Route path="/testPage/hooks2" element={<Hooks10_2/>}/>   
         <Route path="/testPage/hooks3" element={<Hooks10_3/>}/>
         <Route path="/testPage/" element={<TestHome/>}/>         
-        <Route path="/movieHome/" element={<MovieHome/>}/>
-        <Route path="/movie/:id" element={<Detail/>}/>
-        <Route path="/about-us" element={<h1>Hello</h1>}/>
+
+        <Route path={`${process.env.PUBLIC_URL}/wheather/`} element={<Wheather/>}/>
+        <Route path={`${process.env.PUBLIC_URL}/movieHome/`} element={<MovieHome/>}/>
+        <Route path={`${process.env.PUBLIC_URL}`+'/movie/:id'} element={<Detail/>}/>
+        <Route path={`${process.env.PUBLIC_URL}/about-us`} element={<h1>Hello</h1>}/>
       </Routes>
     </Router>
   );

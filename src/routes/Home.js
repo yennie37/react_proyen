@@ -15,7 +15,11 @@ function Home() {
       <h1 className={styles.mainTitle}>Menu</h1> 
   
       <div className={styles.buttons}>        
-        <button onClick={() => navigate('/movieHome')}>Movie List</button>
+        <button onClick={() => navigate(`${process.env.PUBLIC_URL}/movieHome`)}>Movie List</button>
+      </div>
+      
+      <div className={styles.buttons}>        
+        <button onClick={() => navigate(`${process.env.PUBLIC_URL}/wheather`)}>Wheather</button>
       </div>
 
       <div className={styles.buttons}>      

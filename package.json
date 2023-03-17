@@ -1,5 +1,5 @@
 {
-  "name": "react-4-beginners",
+  "name": "react_proyen",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -44,5 +44,5 @@
     ]
   },
   "proxy": "https://yts.am/api/",
-  "homepage": "https://yennie37.github.io/react-4-beginners"
+  "homepage": "https://yennie37.github.io/react_proyen"
 }

@@ -22,27 +22,31 @@ function MovieHome() {
   }, []);
 
   return (
-    <div>
-      <h1 className={styles.title}>Movie List ({movies.length})</h1> 
-      <p className={styles.annotation}>※ 평점 8.9 이상</p>
+    <div>      
       {loading ? (
         <div className={styles.loader}>
+          
           <h1>영화목록을 가져오는 중 :9</h1>
         </div>
-      ) : (
-        <div className={styles.container}>
-          <div className={styles.movies}>
-            {movies.map((movie) => (
-              //props로 Component에 전달
-              <Movie 
-                key={movie.id} // key : map안에서 component들을 render할 때 사용
-                id={movie.id} 
-                coverImg={movie.medium_cover_image} 
-                title={movie.title} 
-                summary={movie.summary} 
-                genres={movie.genres}
-              />
-            ))}
+      ) : (        
+        <div>
+          <h1 className={styles.title}>Movie List ({movies.length})</h1>       
+          <p className={styles.annotation}>※ 평점 8.9 이상</p>        
+
+          <div className={styles.container}>
+            <div className={styles.movies}>
+              {movies.map((movie) => (
+                //props로 Component에 전달
+                <Movie 
+                  key={movie.id} // key : map안에서 component들을 render할 때 사용
+                  id={movie.id} 
+                  coverImg={movie.medium_cover_image} 
+                  title={movie.title} 
+                  summary={movie.summary} 
+                  genres={movie.genres}
+                />
+              ))}
+            </div>
           </div>
         </div>
       )}      

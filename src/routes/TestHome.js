@@ -1,5 +1,6 @@
 /** App component 전체를 가지고 있는 홈 라우트 */
-import {Link, useNavigate} from "react-router-dom"; 
+import {useNavigate} from "react-router-dom"; 
+//import {Link, useNavigate} from "react-router-dom"; 
 //import {useEffect} from "react";
 import styles from "./Home.module.css";
 
